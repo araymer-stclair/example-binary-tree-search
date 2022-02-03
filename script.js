@@ -45,19 +45,23 @@ function binarySearchIndexV2(array, property, value) {
 	return result;
 }
 
-let array = []
-for (let i = 0; i < 100000; i += 1) {
-	let tmp = {
-value: i	
-	};
-	array.push(tmp);
+function _main() {
+
+	let array = []
+		for (let i = 0; i < 100000; i += 1) {
+			let tmp = {
+				value: i	
+			};
+			array.push(tmp);
+		}
+	array = array.reverse();
+	let input = prompt("Pick a number between 1 and 100, 000");
+	console.log('input', input);
+	let result = binarySearchIndexV2(array, 'value', parseInt(input));
+	if (result > 0) {
+		alert(`Number found: ${array[result]['value']}`);
+	} else {
+		alert('Not found');
+	}
 }
-array = array.reverse();
-let input = prompt("Pick a number between 1 and 100, 000");
-console.log('input', input);
-let result = binarySearchIndexV2(array, 'value', parseInt(input));
-if (result > 0) {
-	alert(`Number found: ${array[result]['value']}`);
-} else {
-	alert('Not found');
-}
+_main();
